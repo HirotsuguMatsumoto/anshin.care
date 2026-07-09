@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { Noto_Sans_JP } from "next/font/google";
+import { Providers } from "./providers";
+import "./globals.css";
+
+const notoSansJp = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+  variable: "--font-noto-sans-jp",
+  display: "swap"
+});
+
+export const metadata: Metadata = {
+  title: "anshin.care | Anshin service overview",
+  description:
+    "Anshin の訪問サービス経営支援、介護ロボット・介護テクノロジー、脆弱性診断を紹介するサービス概要サイトです。"
+};
+
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ja">
+      <body className={notoSansJp.variable}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
