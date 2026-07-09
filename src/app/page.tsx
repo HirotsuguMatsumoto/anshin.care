@@ -65,6 +65,7 @@ const services: Service[] = [
 const companyInfoJa = [
   ["会社名", "株式会社 アンシンケアサービス"],
   ["代表取締役", "松本 裕次"],
+  ["資本金", "10,000,000円"],
   ["住所", "〒135-0016 東京都江東区東陽5-26-15"],
   ["メール", "info@anshin.care"],
   ["電話番号", "03-4500-1919"],
@@ -77,6 +78,7 @@ const companyInfoJa = [
 const companyInfoEn = [
   ["Company Name", "Anshin Care Service Co., Ltd."],
   ["Representative Director", "Yuji Matsumoto"],
+  ["Capital", "JPY 10,000,000"],
   ["Address", "5-26-15 Toyo, Koto-ku, Tokyo 135-0016, Japan"],
   ["Email", "info@anshin.care"],
   ["Phone", "+81-3-4500-1919"],
