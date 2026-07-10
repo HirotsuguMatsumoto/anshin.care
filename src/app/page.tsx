@@ -37,8 +37,8 @@ const services: Service[] = [
     icon: InsightsOutlinedIcon,
     tone: "#0f766e",
     description:
-      "勤怠、給与、サービス管理、連絡、請求を一つにつなぎ、小規模事業者の日々の運用を見える化する基盤です。",
-    points: ["勤怠・給与・請求の一元化", "事業者連携と情報共有", "訪問サービス運用にも対応"],
+      "勤怠管理、給与計算、事業所サービス管理、集計・分析を、必要な機能から始められる業務基盤です。",
+    points: ["勤怠管理・給与計算", "事業所サービス管理と集計・分析", "訪問サービス・制度対応にも拡張"],
     href: "https://ads.anshin.care/"
   },
   {
@@ -48,7 +48,8 @@ const services: Service[] = [
     tone: "#2563eb",
     description:
       "現場課題を起点に、記録支援、見守り、服薬・予定リマインド、家族報告を PoC とアプリ連携で育てます。",
-    points: ["訪問職員の負担軽減", "在宅見守り・緊急通知", "現場データによる改善"]
+    points: ["訪問職員の負担軽減", "在宅見守り・緊急通知", "現場データによる改善"],
+    href: "https://robo.ads.anshin.care/"
   },
   {
     title: "アンシン脆弱性診断",
@@ -131,7 +132,7 @@ export default function Home() {
               <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
                 <Chip
                   icon={<VerifiedUserOutlinedIcon />}
-                  label="訪問サービス x テクノロジー x セキュリティ"
+                  label="業務基盤 x テクノロジー x セキュリティ"
                   color="primary"
                   variant="outlined"
                 />
@@ -149,7 +150,7 @@ export default function Home() {
                   className="text-[clamp(1.18rem,2.7vw,2rem)] leading-[1.45]"
                   color="text.secondary"
                 >
-                  訪問サービスの現場運用を、経営支援、生活支援テクノロジー、継続診断でつなぐ。
+                  小規模事業者の業務管理を、必要な機能から始められる。
                 </Typography>
               </Stack>
               <Typography
@@ -157,7 +158,7 @@ export default function Home() {
                 className="max-w-xl text-base leading-8 md:text-lg"
                 color="text.secondary"
               >
-                アンシンアプリを中心に、訪問職員の負担軽減、在宅利用者の安心、要配慮情報を扱うサービスの信頼性向上を一体で支えます。
+                アンシンアプリを中心に、勤怠管理、給与計算、事業所サービス管理から、訪問サービス向け業務管理、生活支援テクノロジー、継続診断までを一体で支えます。
               </Typography>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
                 <Button
@@ -263,7 +264,7 @@ export default function Home() {
             </Stack>
             <Stack spacing={2.5}>
               <Typography variant="body1" color="text.secondary" className="text-base leading-8 md:text-lg">
-                Anshin の土台は、現場です。日々の訪問、記録、連絡、請求、改善をアプリでつなぎ、職員支援と生活支援のテクノロジーを現場で検証します。
+                Anshin の土台は、日々の業務を無理なく整理できることです。勤怠管理、給与計算、事業所サービス管理、予定・実績、請求、改善をアプリでつなぎ、職員支援と生活支援のテクノロジーを現場で検証します。
               </Typography>
               <Typography variant="body1" color="text.secondary" className="text-base leading-8 md:text-lg">
                 さらに、アプリや API、外部連携を継続的に診断することで、要配慮情報を扱うサービスとしての信頼性を高め続けます。
