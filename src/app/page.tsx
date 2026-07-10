@@ -183,9 +183,6 @@ export default function Home() {
         <Container maxWidth="lg">
           <Stack spacing={2.5} className="mb-9 max-w-3xl">
             <Box className="surface-line h-1 w-24 rounded-full" />
-            <Typography variant="h2" className="text-3xl md:text-5xl">
-              3つの入口
-            </Typography>
             <Typography variant="body1" color="text.secondary" className="text-base leading-8 md:text-lg">
               詳細な機能を並べるのではなく、Anshin が何を支えるサービスなのかを最初に伝えるための概要です。
             </Typography>
