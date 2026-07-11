@@ -58,7 +58,7 @@ const services: Service[] = [
     description:
       "アプリ、API、管理画面、外部連携、ロボット・センサー連携を継続的に確認し、要配慮情報を扱うサービスの安全性向上を支えます。",
     points: ["Web/API 診断", "運用に合わせた改善提案", "自社サービスでの継続検証"],
-    href: "https://vulne.frontend.anshin.care/"
+    href: "https://vulne.ads.anshin.care/"
   }
 ];
 
