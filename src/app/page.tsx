@@ -3,7 +3,6 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
-import HealthAndSafetyOutlinedIcon from "@mui/icons-material/HealthAndSafetyOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
@@ -39,7 +38,7 @@ const services: Service[] = [
     description:
       "勤怠管理、給与計算、事業所サービス管理、集計・分析を、必要な機能から始められる業務基盤です。",
     points: ["勤怠管理・給与計算", "事業所サービス管理と集計・分析", "訪問サービス・制度対応にも拡張"],
-    href: "https://ads.anshin.care/"
+    href: "https://app.ads.anshin.care/"
   },
   {
     title: "介護テクノロジー",
@@ -109,12 +108,14 @@ export default function Home() {
             className="flex items-center justify-between gap-4 py-5"
           >
             <Stack direction="row" spacing={1.25} sx={{ alignItems: "center" }}>
-              <Box className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-white">
-                <HealthAndSafetyOutlinedIcon fontSize="small" />
-              </Box>
-              <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                anshin.care
-              </Typography>
+              <Image
+                src="/logo/anshin-care-logo.svg"
+                alt="anshin.care"
+                width={220}
+                height={55}
+                priority
+                className="h-auto w-[clamp(136px,42vw,220px)]"
+              />
             </Stack>
             <Button
               href="#services"
@@ -138,12 +139,6 @@ export default function Home() {
                 />
               </Stack>
               <Stack spacing={2}>
-                <Typography
-                  variant="h1"
-                  className="text-[clamp(2.55rem,7vw,5.8rem)] leading-[1.02]"
-                >
-                  Anshin service overview
-                </Typography>
                 <Typography
                   variant="h2"
                   component="p"

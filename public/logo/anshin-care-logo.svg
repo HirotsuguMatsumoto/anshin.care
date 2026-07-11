@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180" role="img" aria-labelledby="title desc">
+  <title id="title">anshin.care logo</title>
+  <desc id="desc">Leaf mark with the anshin.care wordmark.</desc>
+  <g transform="translate(28 18) scale(.155)">
+    <g transform="translate(-178 -80)">
+      <path d="M548 954C322 858 166 639 178 397C335 459 491 572 564 750C593 824 592 895 548 954Z" fill="#F2D94E" opacity=".96"/>
+      <path d="M574 935C399 801 292 577 318 330C464 444 566 584 623 743C652 824 638 887 574 935Z" fill="#E26A35" opacity=".88"/>
+      <path d="M573 905C470 746 430 507 444 160C561 325 627 494 641 646C650 751 630 838 573 905Z" fill="#F35A38" opacity=".9"/>
+      <path d="M538 770C405 632 330 435 386 285C511 412 608 555 657 710C618 727 578 748 538 770Z" fill="#8DD3E1" opacity=".82"/>
+      <path d="M588 914C520 766 501 618 536 470C567 337 648 213 773 104C807 368 760 538 632 669C566 736 541 814 588 914Z" fill="#50A845" opacity=".92"/>
+      <path d="M592 928C568 779 604 617 700 432C775 286 894 163 1014 80C1030 376 972 560 827 659C703 743 608 833 592 928Z" fill="#EFA947" opacity=".86"/>
+      <path d="M558 884C474 738 465 593 532 448C580 345 657 249 746 171C806 332 820 462 787 559C753 657 671 717 624 793C600 832 577 860 558 884Z" fill="#169CA0" opacity=".76"/>
+      <path d="M597 945C601 846 642 759 733 689" fill="none" stroke="#8A9697" stroke-width="10" stroke-linecap="round" opacity=".68"/>
+    </g>
+  </g>
+  <g transform="translate(185 42)">
+    <text x="0" y="60" fill="#102033" font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, Meiryo, ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="800">anshin.care</text>
+    <text x="3" y="105" fill="#0F766E" font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, Meiryo, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700">Anshin service overview</text>
+  </g>
+</svg>
