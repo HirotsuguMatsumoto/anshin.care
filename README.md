@@ -60,6 +60,23 @@ npm run dev
 npm run preview
 ```
 
+## 診断用ドメイン所有確認
+
+Anshin 脆弱性診断から `https://www.anshin.care` を確認できるよう、次の URL で検証用テキストを返します。
+
+```text
+https://www.anshin.care/.well-known/anshin-vulnediag-verification.txt
+```
+
+ローカルでは `.env` に次の環境変数を設定します。値は repository に直接コミットしません。
+
+```bash
+VULNE_VERIFICATION_TEXT_PATH=/.well-known/anshin-vulnediag-verification.txt
+VULNE_VERIFICATION_TEXT_VALUE=...
+```
+
+Vercel 公開環境では、Project Settings の Environment Variables に同じ2つの環境変数を追加し、Production へ反映したうえで redeploy します。
+
 ## 検証
 
 ```bash
@@ -75,6 +92,9 @@ src/app/
   page.tsx         # single page UI
   providers.tsx    # MUI theme provider
   globals.css      # Tailwind + global styles
+  .well-known/
+    anshin-vulnediag-verification.txt/
+      route.ts     # vulne domain verification response
 public/images/
   anshin-care-hero.png
 ```
