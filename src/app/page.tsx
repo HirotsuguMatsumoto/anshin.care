@@ -88,6 +88,9 @@ const companyInfoEn = [
   ["Established", "Established on April 2, 2001 through reorganization from Yugen Kaisha Anshin."]
 ] as const;
 
+const careServiceUrl =
+  "https://reserve.anshin.care/desc/1/company?area=13&serviceClass=10001&address2=%E6%B1%9F%E6%9D%B1%E5%8C%BA&col1=11";
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
@@ -268,6 +271,34 @@ export default function Home() {
 
       <Box component="section" className="bg-white py-14 md:py-20">
         <Container maxWidth="lg">
+          <Card className="mb-12">
+            <CardContent className="p-6 md:p-8">
+              <Box className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                <Stack spacing={2}>
+                  <Box className="surface-line h-1 w-24 rounded-full" />
+                  <Typography variant="h2" className="text-3xl md:text-5xl">
+                    介護サービスはこちら
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary" className="max-w-2xl text-base leading-8 md:text-lg">
+                    江東区の介護サービス情報を確認できます。
+                  </Typography>
+                </Stack>
+                <Button
+                  href={careServiceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="large"
+                  variant="contained"
+                  color="primary"
+                  endIcon={<OpenInNewRoundedIcon />}
+                  className="self-start whitespace-nowrap md:self-center"
+                >
+                  介護サービスを見る
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+
           <Stack spacing={2.5} className="mb-9 max-w-3xl">
             <Box className="surface-line h-1 w-24 rounded-full" />
             <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
