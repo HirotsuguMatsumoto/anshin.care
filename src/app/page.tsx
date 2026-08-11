@@ -269,6 +269,68 @@ export default function Home() {
         </Container>
       </Box>
 
+      <Box
+        id="representative-message"
+        component="section"
+        className="bg-slate-50 py-14 md:py-20"
+      >
+        <Container maxWidth="lg">
+          <Box className="hidden md:block">
+            <Box className="relative aspect-[40/27] w-full overflow-hidden rounded-[1.5rem] bg-[#f2eadb] shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
+              <Image
+                src="/images/representative-message-calligraphy-horizontal.svg"
+                alt="代表メッセージを表現した横書きの書作品"
+                aria-describedby="representative-message-transcript"
+                fill
+                unoptimized
+                sizes="(max-width: 1200px) 92vw, 1200px"
+                className="object-contain"
+              />
+            </Box>
+          </Box>
+
+          <Box className="mx-auto w-full max-w-[32rem] md:hidden">
+            <Box className="relative aspect-[45/68] overflow-hidden rounded-[1.5rem] bg-[#f2eadb] shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
+              <Image
+                src="/images/representative-message-calligraphy-mobile.svg"
+                alt="代表メッセージを表現したスマホ用横書きの書作品"
+                aria-describedby="representative-message-transcript"
+                fill
+                unoptimized
+                sizes="92vw"
+                className="object-contain"
+              />
+            </Box>
+          </Box>
+
+          <Box
+            id="representative-message-transcript"
+            component="p"
+            sx={{
+              position: "absolute",
+              width: 1,
+              height: 1,
+              padding: 0,
+              margin: -1,
+              overflow: "hidden",
+              clip: "rect(0, 0, 0, 0)",
+              whiteSpace: "nowrap",
+              border: 0
+            }}
+          >
+            代表メッセージ。利用者の目線に立つ。本質を見極める。未来の価値を創る。
+            アンシンは、目先の解決ではなく、常に根本からの解決を追求します。
+            私はアンシンの代表であると同時に、アシアル株式会社
+            システムコンサルティング事業部にも所属し、システムコンサルティングに携わっています。
+            福祉・介護の現場でも、システムコンサルティングの現場でも、私の姿勢は変わりません。
+            お客様と同じ目線に立ち、サービスとシステムを磨き、選ばれる理由を創る。
+            そして、より大きな価値と成長につなげていく。
+            未来に必要とされる存在であり続けるために、アンシンは挑戦を続けます。
+            株式会社アンシン。代表取締役 松本 裕次。
+          </Box>
+        </Container>
+      </Box>
+
       <Box component="section" className="bg-white py-14 md:py-20">
         <Container maxWidth="lg">
           <Card className="mb-12">
