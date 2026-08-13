@@ -1,6 +1,7 @@
 # AI Agent Operating Rules
 
 最優先: `.env`、`.env.*`、`.env.production`、`.env.production.*`、その他 secret / 環境変数ファイルは、ユーザーが対象ファイル・目的・変更内容を明示して許可した場合に限り編集してよい。許可がない場合は編集・生成・上書き・削除・整形・置換・コピーを禁止する。値を表示する場合は secret を露出せず、必要最小限の分類確認に留める。
+最優先: `.env` 系ファイルは全て Git ignore 対象にする。各 repo の `.gitignore` には少なくとも `*.env*` と `.env*` を含め、不足している場合は `.env` 本体ではなく ignore 設定を修正する。`.env` 系ファイルを新規 tracking してはいけない。既に tracked されている場合は commit / push 前に secret を表示せず停止し、ユーザーへ除外方針を確認する。
 最優先: 回答のみの場合は、冒頭に必ず「分類: 回答のみ。編集しません。」と書け。
 最優先: ユーザーが質問・確認・調査をしているだけなら、ファイル編集・生成・整形・設定変更をするな。
 最優先: 変更してよいのは「修正して」「実装して」「変更して」「追加して」「消して」「整備して」など成果物変更が明示された時だけ。
@@ -94,3 +95,10 @@ npm run build
 - secret、`.env` 実体、DB dump、OAuth secret、API key の commit。
 - 無関係な整形、依存更新、広範囲リファクタ。
 - 既存差分の巻き戻し。
+
+
+## ローカル DB migration 必須ルール
+
+- backend / DB schema / Alembic migration を追加・変更した作業では、最終報告前に必ずローカル DB へ migration を適用する。migration があるのに未適用のまま「完了」と報告してはいけない。
+- DB / migration コマンドは repo-local の guard / wrapper を必ず使う。Anshin backend では `bash scripts/ai_run_db_command.sh -- docker compose exec backend alembic upgrade head` を基本とし、host から `postgres` / `db` など Docker Compose service 名へ直接接続する Alembic 実行は禁止する。
+- migration が失敗した場合は、その場で原因を切り分け、ローカル DB が head まで到達したことを確認してから報告する。やむを得ず適用できない場合は、未適用であること、失敗箇所、次に直す対象を明記する。
