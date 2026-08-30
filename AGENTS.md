@@ -1,5 +1,35 @@
 # AI Agent Operating Rules
 
+## 専門用語一覧
+
+| 用語 | 正式名称・読み方 | 意味・本書での扱い |
+| --- | --- | --- |
+| AI | Artificial Intelligence | 人工知能。学習、推論及び生成等を行う技術の総称 |
+| Git | Git | ファイルの変更履歴とブランチを管理する分散型バージョン管理システム |
+| UI | User Interface | 利用者がシステムの情報を見て操作する画面・操作要素 |
+| UX | User Experience | 利用者が製品・serviceの利用前後に得る体験全体 |
+| SPA | Single-Page Application | 画面全体を再読込みせずclient側で表示を切り替えるWeb application |
+| MD | Markdown | 見出し、表、link等をplain textで記述する文書形式 |
+| 障害福祉 | しょうがいふくし | 障害のある人の地域生活・社会参加を支えるserviceと制度の総称 |
+| CSS | Cascading Style Sheets | Webページの見た目や配置を定義するスタイル言語 |
+| MUI | Material UI | React向けのUI component library |
+| SEO | Search Engine Optimization | 検索エンジンがコンテンツを理解・評価しやすくする最適化 |
+| 介護保険 | かいごほけん | 要介護・要支援者へ必要な介護serviceを給付する公的保険制度 |
+| PoC | Proof of Concept | 限定した範囲で実現可能性、効果及びリスクを検証する取組 |
+| JavaScript | JavaScript | Webブラウザ及びserver等で実行されるプログラミング言語 |
+| LTS | Long-Term Support | 長期間の保守・security updateが提供されるrelease区分 |
+| Next.js | Next.js | Reactを基盤とするWebアプリケーションフレームワーク |
+| TypeScript | TypeScript | JavaScriptに静的な型機能等を追加したプログラミング言語 |
+| backend | Backend | server側でAPI、業務処理及びdata管理等を担うsoftware領域 |
+| API | Application Programming Interface | システムやソフトウェア間で機能・データを利用するための接続仕様 |
+| DB | Database | 業務データを永続的に保存・検索するデータベース |
+| frontend | Frontend | 利用者が直接操作する画面及びclient側処理を担うsoftware領域 |
+| DNS | Domain Name System | domain nameとIP address等の情報を対応付ける分散system |
+| OAuth 2.0 | OAuth 2.0 Authorization Framework | 利用者のpasswordを共有せず、限定した権限をtokenで委任する枠組み |
+| schema | Schema | dataの項目、型、制約及び構造を定義したもの |
+| Docker | Docker | アプリケーションと依存関係をcontainerとして実行・配布する基盤 |
+| PostgreSQL | PostgreSQL | open sourceのリレーショナルデータベース管理システム |
+
 最優先: `.env`、`.env.*`、`.env.production`、`.env.production.*`、その他 secret / 環境変数ファイルは、ユーザーが対象ファイル・目的・変更内容を明示して許可した場合に限り編集してよい。許可がない場合は編集・生成・上書き・削除・整形・置換・コピーを禁止する。値を表示する場合は secret を露出せず、必要最小限の分類確認に留める。
 最優先: `.env` 系ファイルは全て Git ignore 対象にする。各 repo の `.gitignore` には少なくとも `*.env*` と `.env*` を含め、不足している場合は `.env` 本体ではなく ignore 設定を修正する。`.env` 系ファイルを新規 tracking してはいけない。既に tracked されている場合は commit / push 前に secret を表示せず停止し、ユーザーへ除外方針を確認する。
 最優先: 回答のみの場合は、冒頭に必ず「分類: 回答のみ。編集しません。」と書け。
