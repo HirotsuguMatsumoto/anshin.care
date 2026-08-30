@@ -1,0 +1,11 @@
+schema_version: 2
+root_id: anshin-care-site
+owner: anshin.care
+enforcement: required
+canonical_documents: []
+managed_globs:
+  - "**/*.md"
+  - "**/*.yaml"
+  - "**/*.json"
+warning_baseline: {}
+exemptions: []

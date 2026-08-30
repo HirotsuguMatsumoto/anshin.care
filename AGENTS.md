@@ -96,6 +96,14 @@ npm run build
 - 無関係な整形、依存更新、広範囲リファクタ。
 - 既存差分の巻き戻し。
 
+<!-- anshin-document-governance:v2 -->
+
+## 文書ガバナンス
+
+- site固有文書の入口は`documents/README.md`、root契約は`documents/manifest.yaml`とする。
+- 文書変更後は`bash scripts/build_check.sh --documents-only`を実行し、repository-localの文書guardとroot coverageを迂回しない。
+- 文書管理はcanonical ID `anshin.governance.document-management`のAnshin全体標準に従う。
+
 
 ## ローカル DB migration 必須ルール
 
