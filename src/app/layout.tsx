@@ -13,7 +13,7 @@ const notoSansJp = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "anshin.care | Anshin service overview",
   description:
-    "Anshin の小規模事業者向け業務基盤、介護ロボット・介護テクノロジー、脆弱性診断を紹介するサービス概要サイトです。",
+    "Anshin のシステムコンサルティング、小規模事業者向け業務基盤、介護ロボット・介護テクノロジー、脆弱性診断を紹介するサービス概要サイトです。",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.svg"

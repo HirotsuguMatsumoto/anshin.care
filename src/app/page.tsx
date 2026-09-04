@@ -1,6 +1,5 @@
-"use client";
-
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import ArchitectureOutlinedIcon from "@mui/icons-material/ArchitectureOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
@@ -31,6 +30,17 @@ type Service = {
 
 const services: Service[] = [
   {
+    title: "システムコンサル",
+    subtitle: "構想から運用改善まで一貫支援",
+    icon: ArchitectureOutlinedIcon,
+    tone: "#14532d",
+    description:
+      "事業課題の整理から要件定義、設計、実装、運用、改善まで、分断せず一つのチームとして伴走します。",
+    points: ["システム構想・要件定義", "設計・実装・品質確認", "運用定着・継続改善"],
+    href:
+      "https://system-consulting.ads.anshin.care/?utm_source=anshin_care&utm_medium=referral&utm_campaign=system_consulting_launch&utm_content=service_card"
+  },
+  {
     title: "アンシンアプリ",
     subtitle: "小規模事業者向け業務基盤",
     icon: InsightsOutlinedIcon,
@@ -60,7 +70,7 @@ const services: Service[] = [
     points: ["Web/API 診断", "運用に合わせた改善提案", "自社サービスでの継続検証"],
     href: "https://vulne.ads.anshin.care/"
   }
-];
+].filter((service) => service.title !== "システムコンサル" || process.env.VERCEL_ENV !== "production" || process.env.NEXT_PUBLIC_SYSTEM_CONSULTING_RELEASE_CONFIRMED === "true");
 
 const companyInfoJa = [
   ["会社名", "株式会社 アンシンケアサービス"],
@@ -122,8 +132,8 @@ export default function Home() {
             </Stack>
             <Button
               href="#services"
-              variant="contained"
-              color="primary"
+              variant="outlined"
+              color="info"
               endIcon={<ArrowForwardRoundedIcon />}
               className="whitespace-nowrap"
             >
@@ -136,7 +146,7 @@ export default function Home() {
               <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
                 <Chip
                   icon={<VerifiedUserOutlinedIcon />}
-                  label="業務基盤 x テクノロジー x セキュリティ"
+                  label="システム支援 x 業務基盤 x テクノロジー x セキュリティ"
                   color="primary"
                   variant="outlined"
                 />
@@ -148,7 +158,7 @@ export default function Home() {
                   className="text-[clamp(1.18rem,2.7vw,2rem)] leading-[1.45]"
                   color="text.secondary"
                 >
-                  小規模事業者の業務管理を、必要な機能から始められる。
+                  事業とシステムを、構想から継続改善まで支える。
                 </Typography>
               </Stack>
               <Typography
@@ -156,19 +166,19 @@ export default function Home() {
                 className="max-w-xl text-base leading-8 md:text-lg"
                 color="text.secondary"
               >
-                アンシンアプリを中心に、勤怠管理、給与計算、事業所サービス管理から、訪問サービス向け業務管理、生活支援テクノロジー、継続診断までを一体で支えます。
+                システムコンサルティング、要件定義、設計、実装、運用、改善を一貫して支援し、自社で培った業務基盤、介護テクノロジー、継続診断の知見につなげます。
               </Typography>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
                 <Button
                   href="#services"
                   size="large"
-                  variant="contained"
-                  color="primary"
+                  variant="outlined"
+                  color="info"
                   endIcon={<ArrowForwardRoundedIcon />}
                 >
-                  3つのサービスを見る
+                  {services.length}つのサービスを見る
                 </Button>
-                <Button href="#concept" size="large" variant="outlined" color="primary">
+                <Button href="#concept" size="large" variant="outlined" color="info">
                   構想を見る
                 </Button>
               </Stack>
@@ -191,8 +201,8 @@ export default function Home() {
               const Icon = service.icon;
 
               return (
-                <Grid key={service.title} size={{ xs: 12, sm: 12, md: 6, lg: 4 }}>
-                  <Card className="h-full">
+                <Grid key={service.title} size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
+                  <Card data-service-card="true" className="service-card h-full">
                     <CardContent className="flex h-full flex-col gap-5 p-6 md:p-7">
                       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
                         <Box
@@ -231,7 +241,7 @@ export default function Home() {
                             target="_blank"
                             rel="noopener noreferrer"
                             variant="outlined"
-                            color="primary"
+                            color="info"
                             endIcon={<OpenInNewRoundedIcon />}
                             className="mt-3 self-start"
                           >
@@ -350,8 +360,8 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   size="large"
-                  variant="contained"
-                  color="primary"
+                  variant="outlined"
+                  color="info"
                   endIcon={<OpenInNewRoundedIcon />}
                   className="self-start whitespace-nowrap md:self-center"
                 >

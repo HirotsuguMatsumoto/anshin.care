@@ -32,3 +32,25 @@ body {
   background:
     linear-gradient(90deg, rgba(15, 118, 110, 0.16), rgba(37, 99, 235, 0.12), rgba(249, 115, 22, 0.16));
 }
+
+.service-card {
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  border-color: rgba(2, 136, 209, 0.5);
+  box-shadow: 0 22px 54px rgba(15, 35, 32, 0.14);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none;
+  }
+
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: none;
+  }
+}

@@ -11,7 +11,9 @@
     "build": "next build",
     "preview": "next build && next start",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:site-contract": "node --test scripts/site-contract.test.mjs",
+    "test:site-integration": "node scripts/site-http.integration.mjs && node scripts/site-release-flag.integration.mjs"
   },
   "overrides": {
     "postcss": "^8.5.16"

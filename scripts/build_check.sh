@@ -24,7 +24,9 @@ if [[ "$MODE" == "--documents-only" ]]; then
 fi
 
 npm run lint
+npm run test:site-contract
 if [[ "$MODE" == "--full" ]]; then
   npm run build
+  npm run test:site-integration
 fi
 echo "[build_check] OK mode=$MODE"
