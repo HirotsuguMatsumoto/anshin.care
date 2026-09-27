@@ -1,6 +1,7 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import ArchitectureOutlinedIcon from "@mui/icons-material/ArchitectureOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
@@ -51,6 +52,16 @@ const services: Service[] = [
     href: "https://app.ads.anshin.care/"
   },
   {
+    title: "アンシンアプリ 無料サービス",
+    subtitle: "安心・学び・連携を基本料0円で",
+    icon: GroupsOutlinedIcon,
+    tone: "#7c3aed",
+    description:
+      "安否確認、オンライン研修、ケアチーム連携を、基本料0円・登録人数の上限なしで利用できます。",
+    points: ["安否確認", "オンライン研修", "ケアチーム連携"],
+    href: "https://pr1.ads.anshin.care/"
+  },
+  {
     title: "介護テクノロジー",
     subtitle: "職員支援と生活支援",
     icon: PrecisionManufacturingOutlinedIcon,
@@ -70,7 +81,7 @@ const services: Service[] = [
     points: ["Web/API 診断", "運用に合わせた改善提案", "自社サービスでの継続検証"],
     href: "https://vulne.ads.anshin.care/"
   }
-].filter((service) => service.title !== "システムコンサル" || process.env.VERCEL_ENV !== "production" || process.env.NEXT_PUBLIC_SYSTEM_CONSULTING_RELEASE_CONFIRMED === "true");
+];
 
 const companyInfoJa = [
   ["会社名", "株式会社 アンシンケアサービス"],
@@ -196,12 +207,12 @@ export default function Home() {
             </Typography>
           </Stack>
 
-          <Grid container spacing={3}>
+          <Grid container spacing={3} sx={{ justifyContent: "center" }}>
             {services.map((service) => {
               const Icon = service.icon;
 
               return (
-                <Grid key={service.title} size={{ xs: 12, sm: 6, md: 6, lg: 3 }}>
+                <Grid key={service.title} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Card data-service-card="true" className="service-card h-full">
                     <CardContent className="flex h-full flex-col gap-5 p-6 md:p-7">
                       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
@@ -318,8 +329,8 @@ export default function Home() {
             component="p"
             sx={{
               position: "absolute",
-              width: 1,
-              height: 1,
+              width: "1px",
+              height: "1px",
               padding: 0,
               margin: -1,
               overflow: "hidden",

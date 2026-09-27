@@ -4,7 +4,7 @@ import { test } from "node:test";
 
 const pageSource = await readFile(new URL("../src/app/page.tsx", import.meta.url), "utf8");
 
-test("the system consulting card is first and links to the dedicated HTTPS site", () => {
+test("the system consulting card is always present and links to the dedicated HTTPS site", () => {
   const consulting = pageSource.indexOf('title: "システムコンサル"');
   const app = pageSource.indexOf('title: "アンシンアプリ"');
 
@@ -12,13 +12,16 @@ test("the system consulting card is first and links to the dedicated HTTPS site"
   assert.ok(consulting < app);
   assert.match(pageSource, /https:\/\/system-consulting\.ads\.anshin\.care\//);
   assert.match(pageSource, /utm_source=anshin_care/);
-  assert.match(pageSource, /NEXT_PUBLIC_SYSTEM_CONSULTING_RELEASE_CONFIRMED/);
+  assert.doesNotMatch(pageSource, /NEXT_PUBLIC_SYSTEM_CONSULTING_RELEASE_CONFIRMED/);
 });
 
-test("the service grid communicates four services and keeps action buttons outlined", () => {
-  const serviceTitles = [...pageSource.matchAll(/title: "(システムコンサル|アンシンアプリ|介護テクノロジー|アンシン脆弱性診断)"/g)];
+test("the service grid communicates five services in rows of up to three", () => {
+  const serviceTitles = [...pageSource.matchAll(/title: "(システムコンサル|アンシンアプリ|アンシンアプリ 無料サービス|介護テクノロジー|アンシン脆弱性診断)"/g)];
 
-  assert.equal(serviceTitles.length, 4);
+  assert.equal(serviceTitles.length, 5);
   assert.match(pageSource, /services\.length.*つのサービスを見る/);
+  assert.match(pageSource, /https:\/\/pr1\.ads\.anshin\.care\//);
+  assert.match(pageSource, /sx=\{\{ justifyContent: "center" \}\}/);
+  assert.match(pageSource, /size=\{\{ xs: 12, sm: 6, md: 4 \}\}/);
   assert.doesNotMatch(pageSource, /<Button[\s\S]{0,220}variant="contained"/);
 });
