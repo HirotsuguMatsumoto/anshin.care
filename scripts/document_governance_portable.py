@@ -106,8 +106,8 @@ FORBIDDEN_GITHUB_ACTIONS_QUALITY_COMMANDS = (
 ALLOWED_GITHUB_ACTIONS_WORKFLOWS = {
     "backend-image.yml": "docker/build-push-action@",
     "backend-image.yaml": "docker/build-push-action@",
-    "deploy-production.yml": "ssh",
-    "deploy-production.yaml": "ssh",
+    "deploy-production.yml": "deploy-core-backend-v1",
+    "deploy-production.yaml": "deploy-core-backend-v1",
     "production-image.yml": "docker/build-push-action@",
     "production-image.yaml": "docker/build-push-action@",
 }
