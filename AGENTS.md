@@ -162,3 +162,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Checker配布の限定検査
+
+文書checkerの配布と定型adapterだけの変更は、`anshin.governance.document-management`の10.2に従い、`bash scripts/build_check.sh --document-distribution`をcanonical検査とする。それ以外の変更では本書の通常fast/full条件を維持する。専用profileが不適格を返した場合は検査を省略せず、通常の変更範囲検査へ戻す。
