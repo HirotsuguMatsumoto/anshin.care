@@ -52,11 +52,11 @@ Anshin が提供する価値を、次の5つのカードで紹介します。
 
 ## 参照元
 
-- `/Users/matsumotoyuuji/dev/anshin`
+- `anshin`
   - アンシンアプリ、小規模事業者向け業務基盤、既存サービス基盤。
-- `/Users/matsumotoyuuji/dev/anshin-vulnediag-infra`
+- `anshin-vulnediag-infra`
   - アンシン脆弱性診断サービス。
-- `/Users/matsumotoyuuji/dev/documents/anshin_new_service_market_research_2026-07-07.md`
+- `${WORKSPACE_ROOT}/documents/anshin_new_service_market_research_2026-07-07.md`（旧workspace外部参照・所在未確認。`WORKSPACE_ROOT`は各repositoryの親directory）
   - 「2. 介護ロボット、介護テクノロジーを活用した訪問職員支援サービス、および利用者の生活支援サービス」
 
 ## 技術スタック

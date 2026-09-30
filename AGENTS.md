@@ -55,10 +55,10 @@
 
 ## 参照元
 
-- `/Users/matsumotoyuuji/dev/anshin/AGENTS.md`
-- `/Users/matsumotoyuuji/dev/anshin`
-- `/Users/matsumotoyuuji/dev/anshin-vulnediag-infra`
-- `/Users/matsumotoyuuji/dev/documents/anshin_new_service_market_research_2026-07-07.md`
+- `anshin/AGENTS.md`
+- `anshin`
+- `anshin-vulnediag-infra`
+- `${WORKSPACE_ROOT}/documents/anshin_new_service_market_research_2026-07-07.md`（旧workspace外部参照・所在未確認。`WORKSPACE_ROOT`は各repositoryの親directory）
 
 作業内容が Anshin 本体、脆弱性診断、認証、本番運用、法務文言、介護・医療・障害福祉の業務仕様に踏み込む場合は、該当 repo / document の具体ルールを読む。
 
