@@ -41,7 +41,7 @@
 <!-- /anshin-ai-driven-development-policy:v1 -->
 
 最優先: `.env`、`.env.*`、`.env.production`、`.env.production.*`、その他 secret / 環境変数ファイルは、ユーザーが対象ファイル・目的・変更内容を明示して許可した場合に限り編集してよい。許可がない場合は編集・生成・上書き・削除・整形・置換・コピーを禁止する。値を表示する場合は secret を露出せず、必要最小限の分類確認に留める。
-最優先: `.env` 系ファイルは全て Git ignore 対象にする。各 repo の `.gitignore` には少なくとも `*.env*` と `.env*` を含め、不足している場合は `.env` 本体ではなく ignore 設定を修正する。`.env` 系ファイルを新規 tracking してはいけない。既に tracked されている場合は commit / push 前に secret を表示せず停止し、ユーザーへ除外方針を確認する。
+最優先: secretを含むruntimeの`.env`及び`.env.*`はGit ignoreを維持し、値を表示又は追跡しない。repositoryが正本とする既知の`.env.example`、`.env.*.example`又は`.env*.sample`はsecret-freeを確認した場合だけ追跡できる。
 最優先: 回答のみの場合は、冒頭に必ず「分類: 回答のみ。編集しません。」と書け。
 最優先: ユーザーが質問・確認・調査をしているだけなら、ファイル編集・生成・整形・設定変更をするな。
 最優先: 変更してよいのは「修正して」「実装して」「変更して」「追加して」「消して」「整備して」など成果物変更が明示された時だけ。
@@ -166,3 +166,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Checker配布の限定検査
 
 文書checkerの配布と定型adapterだけの変更は、`anshin.governance.document-management`の10.2に従い、`bash scripts/build_check.sh --document-distribution`をcanonical検査とする。それ以外の変更では本書の通常fast/full条件を維持する。専用profileが不適格を返した場合は検査を省略せず、通常の変更範囲検査へ戻す。
+
+## Checker配布の限定検査
+
+文書checkerの配布と定型adapterだけの変更は、`anshin.governance.document-management`の10.2に従い、repository-local planを一度生成し、`bash scripts/build_check.sh --auto --plan <path>`へ渡す。それ以外の変更ではrepository固有の通常selectorを維持する。専用profileが不適格を返した場合は検査を省略せず、通常の変更範囲検査へ戻す。
