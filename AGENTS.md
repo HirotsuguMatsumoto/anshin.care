@@ -30,6 +30,11 @@
 | Docker | Docker | アプリケーションと依存関係をcontainerとして実行・配布する基盤 |
 | PostgreSQL | PostgreSQL | open sourceのリレーショナルデータベース管理システム |
 
+## 実装規程を最初に読む
+
+- 正本: [アンシン AI駆動開発規程](../anshin/documents/specs/ai-agent-policy/ai_driven_development_policy.md)（`anshin.governance.ai-driven-development`）。`build_check.sh`は常に最適化・重複禁止・絶対的にシンプル・無駄なガード禁止（同正本§3.0.3）。UIのAI検証・本人最終確認は§3.4.1、検査選択は`anshin.governance.path-aware-local-quality-gate`。
+- 相対linkは通常workspace配置を基準とする。隔離worktreeではGit common directoryが属するprimary cloneと既存workspace resolverからAnshin正本checkoutを特定し、Anshin正本checkoutを実行directoryとして`python3 scripts/resolve_document_reference.py --require-unique <doc_id>`で解決する。共通規程を本書へ複製・上書きしない。
+
 <!-- anshin-ai-driven-development-policy:v1 -->
 
 1. AI駆動開発はcanonical doc_id `anshin.governance.ai-driven-development`に従う。現行revisionは`AI-DD-20260920.1`である。
@@ -60,7 +65,7 @@
 最優先: 回答のみの場合は、冒頭に必ず「分類: 回答のみ。編集しません。」と書け。
 最優先: ユーザーが質問・確認・調査をしているだけなら、ファイル編集・生成・整形・設定変更をするな。
 最優先: 変更してよいのは「修正して」「実装して」「変更して」「追加して」「消して」「整備して」など成果物変更が明示された時だけ。
-最優先: 判断に迷ったら編集せず、まず結論を答えて、実装するか確認しろ。
+最優先: 未確認点は正本・既存実装・利用可能な事実で調べる。明示依頼scope内で判断できる通常実装を追加承認待ちにせず、判断不能な必須入力又はscope外の操作だけを具体的に確認する。
 最優先: UI/UXを実装・修正する場合は、ユーザーが説明文を読まなくても操作対象・操作可否・現在状態・次アクションが一目で分かる見た目、hover/focus/drag/drop 等のフィードバックを必ず実装し、見た目と言動が一致しない文言だけの対応を禁止する。
 最優先: UI/UXを実装・修正する場合は、ファイル編集前に必ず「どこに、何を、どの既存実装に合わせて、どう実装し、どう検証するか」の詳細設計をユーザーへ説明し、ユーザーの明示的な実施許可を得るまで編集してはいけない。
 
@@ -73,7 +78,6 @@
 - `anshin/AGENTS.md`
 - `anshin`
 - `anshin-vulnediag-infra`
-- `${WORKSPACE_ROOT}/documents/anshin_new_service_market_research_2026-07-07.md`（旧workspace外部参照・所在未確認。`WORKSPACE_ROOT`は各repositoryの親directory）
 
 作業内容が Anshin 本体、脆弱性診断、認証、本番運用、法務文言、介護・医療・障害福祉の業務仕様に踏み込む場合は、該当 repo / document の具体ルールを読む。
 
@@ -94,7 +98,6 @@
 - `git status --short`、関連 `rg`、近傍ファイル確認で差分候補を特定した後、編集開始前に詳細設計をユーザーへ説明する。
 - 詳細設計には、対象 page / component / file、参照する既存 UI、再利用する MUI / Tailwind / theme、変更するファイルごとの役割、追加・変更する状態、操作可否、loading / empty / error / disabled / hover / focus、mobile / desktop、SEO / 表現ガードへの影響、検証方法、残リスクを含める。
 - 詳細設計を説明した後はそこで停止し、ユーザーが「進めて」「その設計で実装して」「実施して」など明示的に再開を許可するまで、ファイル編集、format、生成、build、画面確認へ進まない。
-- ユーザーが最初から「詳細設計説明後に承認待ちせず実装して」と明示した場合だけ、説明後に同じターンで実装へ進んでよい。その場合も説明なしに編集してはいけない。
 
 ## サイトの責務
 
@@ -136,14 +139,9 @@
 
 ## 検証
 
-変更後は原則として以下を実行する。
+変更pathから既存selectorが選ぶcanonical `scripts/build_check.sh`を一回実行する。文書・AGENTSだけならdocuments-only経路とし、内包されるlint・buildを手動で前後に重複実行しない。
 
-```bash
-npm run lint
-npm run build
-```
-
-ブラウザ実描画確認、Playwright、screenshot、in-app browser を使う場合は、上位 AGENTS の画面確認ルールに従い、必要なら事前にユーザー確認を取る。
+UI変更は共通AI規程§3.4.1に従い、自動test・Playwrightとin-app browserでAIが先に検証・修正し、指示者本人へ動く実UIの最終確認を依頼する。承認済みscopeのAI確認を別の事前承認待ちにしない。
 
 ## 禁止事項
 
@@ -177,10 +175,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
-
-## Checker配布の限定検査
-
-文書checkerの配布と定型adapterだけの変更は、`anshin.governance.document-management`の10.2に従い、`bash scripts/build_check.sh --document-distribution`をcanonical検査とする。それ以外の変更では本書の通常fast/full条件を維持する。専用profileが不適格を返した場合は検査を省略せず、通常の変更範囲検査へ戻す。
 
 ## Checker配布の限定検査
 
