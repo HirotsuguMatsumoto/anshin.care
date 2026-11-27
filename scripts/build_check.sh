@@ -125,7 +125,6 @@ fi
 # anshin-document-distribution-profile:v1
 if [[ "${1:-}" == "--document-distribution" ]]; then
   [[ $# -eq 1 ]] || { echo "[build_check] ERROR: distribution mode accepts no paths" >&2; exit 2; }
-  bash scripts/run_document_governance_guard.sh
   DISTRIBUTION_SELECTION="$(bash scripts/run_document_governance_guard.sh --build-check-profile)"
   read -r DISTRIBUTION_PROFILE DISTRIBUTION_BASE DISTRIBUTION_TARGET DISTRIBUTION_HEAD DISTRIBUTION_INPUT <<< "$DISTRIBUTION_SELECTION"
   [[ "$DISTRIBUTION_PROFILE" == "document-distribution" ]] || {
@@ -136,7 +135,7 @@ if [[ "${1:-}" == "--document-distribution" ]]; then
   git diff --no-ext-diff --no-textconv --cached --check --
   git diff --no-ext-diff --no-textconv --check --
   bash -n scripts/build_check.sh scripts/run_document_governance_guard.sh scripts/test_document_governance_guard.sh
-  bash scripts/test_document_governance_guard.sh "$ROOT_DIR"
+  bash scripts/run_document_governance_guard.sh --with-portable-self-test
   [[ "$(bash scripts/run_document_governance_guard.sh --build-check-profile)" == "$DISTRIBUTION_SELECTION" ]] || {
     echo "[build_check] ERROR: distribution inputs changed during verification" >&2
     exit 1
@@ -175,7 +174,6 @@ fi
 npm run lint
 npm run test:site-contract
 if [[ "$MODE" == "--full" ]]; then
-  npm run build
   npm run test:site-integration
 fi
 echo "[build_check] OK mode=$MODE"

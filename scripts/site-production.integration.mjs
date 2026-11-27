@@ -61,9 +61,13 @@ try {
   const response = await waitForPage(`http://127.0.0.1:${port}/`);
   const html = await response.text();
 
+  assert.equal(response.status, 200);
   assert.match(html, /5(?:<!-- -->)?つのサービスを見る/);
+  assert.match(html, /システムコンサル/);
   assert.match(html, /system-consulting\.ads\.anshin\.care/);
+  assert.match(html, /アンシンアプリ 無料サービス/);
   assert.match(html, /pr1\.ads\.anshin\.care/);
+  assert.ok(html.indexOf("システムコンサル") < html.indexOf("アンシンアプリ"));
   assert.equal((html.match(/data-service-card="true"/g) ?? []).length, 5);
 } catch (error) {
   process.stderr.write(logs);
